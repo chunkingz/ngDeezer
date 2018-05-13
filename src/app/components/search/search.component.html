@@ -1,10 +1,13 @@
 <div class="container">
+    <h1>Need Music?</h1>
+    <p class="lead">using the ngSpotify app to browse new releases and find your favorite songs <br> All you get is that text and a mostly barebones html document.
+    </p>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <form>
                 <div class="form-group">
                     <!--search box-->
-                    <input class="form-control" id="searchbox" name="username" type="text" placeholder="Enter name of artist/song...">
+                    <input class="form-control" id="searchbox" name="searchStr" type="text" [(ngModel)]="searchStr" (keyup)="searchMusic()" placeholder="Enter name of artist/song...">
 
                 </div>
             </form>
