@@ -2,15 +2,23 @@
     <h1>Need Music?</h1>
     <p class="lead">using the ngSpotify app to browse new releases and find your favorite songs <br> All you get is that text and a mostly barebones html document.
     </p>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <form>
-                <div class="form-group">
-                    <!--search box-->
-                    <input class="form-control" id="searchbox" name="searchStr" type="text" [(ngModel)]="searchStr" (keyup)="searchMusic()" placeholder="Enter name of artist/song...">
+    <form>
+        <div class="form-group">
+            <!--search box-->
+            <input class="form-control" id="searchbox" name="searchStr" type="text" [(ngModel)]="searchStr" (keyup)="searchMusic()" placeholder="Enter name of artist/song...">
+        </div>
+    </form>
 
+    <div *ngIf="searchRes">
+        <div *ngFor="let res of searchRes.data">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well" style="background: #222; border-radius: 0.5rem; padding: 1em;">
+                        <!-- <h4>{{res.id}}</h4> -->
+                        <h4>{{res.artist.name}}</h4>
+                    </div>
                 </div>
-            </form>
+            </div><br>
         </div>
     </div>
 </div>
