@@ -1,0 +1,18 @@
+<div class="container">
+    <p align="center" *ngIf="loader">Loading ...</p>
+    <div *ngIf="artist">
+        <header class="artist-header">
+            <div *ngIf="artist.picture.length > 0">
+                <img [src]="artist.picture_medium" class="artist-thumb img-circle">
+            </div>
+            <h2 class="bot">Artist name: {{artist?.name}}</h2>
+        </header>
+        <div class="artist-albums">
+            <div class="row">
+                <div *ngFor="let album of albums">
+                    {{album}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

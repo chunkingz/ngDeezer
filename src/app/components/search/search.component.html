@@ -10,12 +10,12 @@
     </form>
 
     <div *ngIf="searchRes">
-        <div *ngFor="let res of searchRes.data">
+        <div *ngFor="let res of searchRes">
             <div class="row">
                 <div class="col-md-12">
                     <div class="well" style="background: #222; border-radius: 0.5rem; padding: 1em;">
                         <!-- <h4>{{res.id}}</h4> -->
-                        <h4><a href="{{res.link}}" target="_blank">{{res.artist.name}}</a></h4>
+                        <h4><a routerLink="/artist/{{res.artist.id}}" target="_blank">{{res.artist.name}}</a></h4>
                         <h6>{{res.title}}</h6>
                     </div>
                 </div>
