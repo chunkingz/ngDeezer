@@ -5,6 +5,7 @@ import { IResult } from '../interfaces/iresult';
 import { Observable } from 'rxjs/Observable';
 import { IArtist } from '../interfaces/iartist';
 import { IAlbum } from '../interfaces/ialbum';
+import { ITrack } from '../interfaces/itrack';
 
 @Injectable()
 export class SpotifyService {
@@ -13,6 +14,7 @@ export class SpotifyService {
 private artistUrl: string;
 private albumsUrl: string;
 private albumUrl: string;
+private tracksUrl: string;
 
   constructor(private http: HttpClient) {
   }
@@ -37,5 +39,11 @@ private albumUrl: string;
       this.albumUrl = `https://api.deezer.com/album/${albumId}`;
       return this.http.get(this.albumUrl)
       .map((res: any) => <IAlbum> res);
+      }
+
+    getTracks(albumId: string): Observable<ITrack[]> {
+      this.tracksUrl = `https://api.deezer.com/album/${albumId}/tracks`;
+      return this.http.get(this.tracksUrl)
+      .map((res: any) => <ITrack[]> res.data);
       }
   }

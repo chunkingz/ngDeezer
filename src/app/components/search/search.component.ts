@@ -1,4 +1,3 @@
-import { Artist } from './../../../Artist';
 import { SpotifyService } from './../../service/spotify.service';
 import { Component } from '@angular/core';
 import { IResult } from '../../interfaces/iresult';

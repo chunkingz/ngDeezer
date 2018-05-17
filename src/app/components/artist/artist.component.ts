@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { SpotifyService } from './../../service/spotify.service';
 import { Component, OnInit } from '@angular/core';
-import { Artist } from '../../../Artist';
 import {ActivatedRoute} from '@angular/router';
 import { IArtist } from '../../interfaces/iartist';
 import { IResult } from '../../interfaces/iresult';

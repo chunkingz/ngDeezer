@@ -2,12 +2,47 @@
     <p align="center" *ngIf="loader">Loading ...</p>
     <div *ngIf="album">
         <header class="album-header">
-            <div *ngIf="album.cover_medium.length > 0">
-                <img class="img img-thumbnail album-thumb" src="{{album.cover_medium}}">
+            <div class="row">
+                <div class="col-md-4">
+                    <div *ngIf="album.cover_medium.length > 0">
+                        <img class="img img-thumbnail album-thumb" src="{{album.cover_medium}}">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h4>
+                        <span>{{artist?.name}}</span>
+                    </h4>
+                    <h2 class="bot">Album name: {{album?.title}}</h2>
+                    <span class="album-extras">{{album?.nb_tracks}} track album</span>
+                    <br>
+                    <span class="album-extras">{{album?.fans}} Fans</span>
+                    <br>
+                    <span class="album-extras">Release Date: {{album?.release_date}}</span>
+                    <br>
+                    <span class="album-extras">Rating: {{album?.rating}} stars</span>
+                    <br>
+                    <span class="album-extras">Duration: {{album?.duration}} sec</span>
+                    <br>
+                    <span class="album-extras">Record Label: {{album?.label}} </span>
+                </div>
             </div>
-            <h2 class="bot">Album name: {{album?.title}}</h2>
-
+            <br><br>
         </header>
-        <a href="{{album.link}}" target="_blank" class="btn btn-warning btn-block"> View Album</a>
+        <a href="{{album.link}}" target="_blank" class="btn btn-warning btn-block"> View Album in Deezer</a>
+        <br>
+        <h2 class="text-center">
+            <u>Album Track Listings</u>
+        </h2>
+        <br>
+        <div *ngFor="let track of tracks">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well album" style="background: #222; border-radius: 0.5rem; padding: 1em;">
+                        <h4>{{track.track_position}}. {{track.title}}</h4>
+                        <a href="{{track.preview}}" target="_blank">Preview Track</a>
+                    </div>
+                </div>
+            </div><br>
+        </div>
     </div>
 </div>
