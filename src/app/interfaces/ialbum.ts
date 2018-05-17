@@ -6,5 +6,6 @@ export interface IAlbum {
   cover_medium: string;
   cover_big: string;
   cover_xl: string;
+  link: string;
 
 }

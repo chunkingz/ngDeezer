@@ -9,10 +9,11 @@
         </header>
 
         <div class="artist-albums">
-            <div class="row">
-                <div *ngFor="let album of albums">
-                    <div class="col-md-3">
-                        <div class="well album">
+
+            <div *ngFor="let album of albums">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well album" style="background: #222; border-radius: 0.5rem; padding: 1em;">
                             <div *ngIf="album.cover.length > 0">
                                 <img class="img img-thumbnail album-thumb" src="{{album.cover_medium}}">
                                 <h4>{{album.title}}</h4>
@@ -20,7 +21,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br>
             </div>
         </div>
     </div>

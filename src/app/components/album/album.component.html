@@ -2,7 +2,12 @@
     <p align="center" *ngIf="loader">Loading ...</p>
     <div *ngIf="album">
         <header class="album-header">
+            <div *ngIf="album.cover_medium.length > 0">
+                <img class="img img-thumbnail album-thumb" src="{{album.cover_medium}}">
+            </div>
             <h2 class="bot">Album name: {{album?.title}}</h2>
+
         </header>
+        <a href="{{album.link}}" target="_blank" class="btn btn-warning btn-block"> View Album</a>
     </div>
 </div>
