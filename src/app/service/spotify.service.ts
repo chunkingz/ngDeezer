@@ -11,13 +11,14 @@ export class SpotifyService {
 
 // private searchUrl = 'https://api.deezer.com/user/2529';
 private artistUrl: string;
+private albumsUrl: string;
 private albumUrl: string;
 
   constructor(private http: HttpClient) {
   }
 
   searchMusic(str: string, type = 'artist'): Observable<IResult[]> {
-    const searchUrl = `https://api.deezer.com/search?q=${str}&offset=0&limit=20&type=${type}`;
+    const searchUrl = `https://api.deezer.com/search?q=${str}&offset=0&limit=10&type=${type}`;
      return this.http.get(searchUrl).map((res: any) => <IResult[]>res.data);
     }
 
@@ -26,8 +27,15 @@ private albumUrl: string;
        return this.http.get(this.artistUrl).map(res => <IArtist> res);
       }
 
-    getAlbum(artistId: string): Observable<IAlbum> {
-      this.albumUrl = `https://api.deezer.com/artist/${artistId}/albums`;
-       return this.http.get(this.albumUrl).map(res => <IAlbum> res);
+    getAlbums(artistId: string): Observable<IAlbum[]> {
+      this.albumsUrl = `https://api.deezer.com/artist/${artistId}/albums`;
+      return this.http.get(this.albumsUrl)
+      .map((res: any) => <IAlbum[]> res.data);
+      }
+
+    getAlbum(albumId: string): Observable<IAlbum> {
+      this.albumUrl = `https://api.deezer.com/album/${albumId}`;
+      return this.http.get(this.albumUrl)
+      .map((res: any) => <IAlbum> res);
       }
   }

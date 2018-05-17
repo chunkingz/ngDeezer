@@ -7,10 +7,19 @@
             </div>
             <h2 class="bot">Artist name: {{artist?.name}}</h2>
         </header>
+
         <div class="artist-albums">
             <div class="row">
                 <div *ngFor="let album of albums">
-                    {{album}}
+                    <div class="col-md-3">
+                        <div class="well album">
+                            <div *ngIf="album.cover.length > 0">
+                                <img class="img img-thumbnail album-thumb" src="{{album.cover_medium}}">
+                                <h4>{{album.title}}</h4>
+                                <a routerLink="/album/{{album.id}}" target="_blank" class="btn btn-warning btn-block"> View Album</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

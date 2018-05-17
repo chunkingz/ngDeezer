@@ -1,0 +1,8 @@
+<div class="container">
+    <p align="center" *ngIf="loader">Loading ...</p>
+    <div *ngIf="album">
+        <header class="album-header">
+            <h2 class="bot">Album name: {{album?.title}}</h2>
+        </header>
+    </div>
+</div>
